@@ -7,7 +7,7 @@ namespace CustomList
 {
     public static class Extensions
     {
-        public static IEnumerable<T> GetElement<T>(this CustomList<T> list, Func<T, bool> filter)
+        public static IEnumerable<T> GetElement<T>(this IEnumerable<T> list, Func<T, bool> filter)
         {
             foreach (var element in list)
             {
