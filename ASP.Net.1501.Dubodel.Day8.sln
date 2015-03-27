@@ -3,17 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1", "Task1", "{52C90282-1FC6-41CB-AC1A-3BAA4ACB8904}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1 (CustomList)", "Task1 (CustomList)", "{52C90282-1FC6-41CB-AC1A-3BAA4ACB8904}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomList", "Task1\CustomList\CustomList.csproj", "{B380AC38-C9B4-425C-A9C4-BCE727D2A017}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomListUnitTestProject", "Task1\UnitTestProject1\CustomListUnitTestProject.csproj", "{B8EA4022-7853-462A-A399-3C50E0A84ADD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task2", "Task2", "{420F8219-13B8-48AD-B17D-057EA5A0F5FE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task2 (CustomQueue)", "Task2 (CustomQueue)", "{420F8219-13B8-48AD-B17D-057EA5A0F5FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomQueue", "Task2\CustomQueue\CustomQueue.csproj", "{2BF2CABE-9CF5-42D4-AB15-D5F93636B591}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomQueueTests", "Task2\CustomQueueTests\CustomQueueTests.csproj", "{47EABCE1-4060-463F-BFA6-8112DAC41355}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task4 (Fibonacci)", "Task4 (Fibonacci)", "{4C47A990-DF19-45FE-8614-9D73984C1983}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciEnumerator", "Task4\FibonacciEnumerator\FibonacciEnumerator.csproj", "{5BCA06F3-E03B-4852-A419-22856B04EA80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUIFibonacci", "Task4\ConsoleUIFibonacci\ConsoleUIFibonacci.csproj", "{AA93FB28-9F59-4251-B05C-87C2A0C61C1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +43,14 @@ Global
 		{47EABCE1-4060-463F-BFA6-8112DAC41355}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47EABCE1-4060-463F-BFA6-8112DAC41355}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47EABCE1-4060-463F-BFA6-8112DAC41355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BCA06F3-E03B-4852-A419-22856B04EA80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BCA06F3-E03B-4852-A419-22856B04EA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BCA06F3-E03B-4852-A419-22856B04EA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BCA06F3-E03B-4852-A419-22856B04EA80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA93FB28-9F59-4251-B05C-87C2A0C61C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA93FB28-9F59-4251-B05C-87C2A0C61C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA93FB28-9F59-4251-B05C-87C2A0C61C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA93FB28-9F59-4251-B05C-87C2A0C61C1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +60,7 @@ Global
 		{B8EA4022-7853-462A-A399-3C50E0A84ADD} = {52C90282-1FC6-41CB-AC1A-3BAA4ACB8904}
 		{2BF2CABE-9CF5-42D4-AB15-D5F93636B591} = {420F8219-13B8-48AD-B17D-057EA5A0F5FE}
 		{47EABCE1-4060-463F-BFA6-8112DAC41355} = {420F8219-13B8-48AD-B17D-057EA5A0F5FE}
+		{5BCA06F3-E03B-4852-A419-22856B04EA80} = {4C47A990-DF19-45FE-8614-9D73984C1983}
+		{AA93FB28-9F59-4251-B05C-87C2A0C61C1C} = {4C47A990-DF19-45FE-8614-9D73984C1983}
 	EndGlobalSection
 EndGlobal
