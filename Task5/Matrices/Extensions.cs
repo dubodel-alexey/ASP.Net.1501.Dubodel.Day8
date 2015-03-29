@@ -7,11 +7,17 @@ namespace Matrices
         public static SquareMatrix<T> Add<T>(this SquareMatrix<T> firstMatrix, SquareMatrix<T> secondMatrix,
             Func<T, T, T> elementsAddition)
         {
+            if (firstMatrix == null)
+                throw new ArgumentNullException("firstMatrix");
+
+            if (secondMatrix == null)
+                throw new ArgumentNullException("secondMatrix");
+
             if (firstMatrix.Order != secondMatrix.Order)
                 throw new ArgumentException("Can't add square matricies with different order.");
 
             if (elementsAddition == null)
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("elementsAddition");
 
             var result = new SquareMatrix<T>(firstMatrix.Order);
             for (int i = 0; i < firstMatrix.Order; i++)

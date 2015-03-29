@@ -26,15 +26,19 @@ namespace BinarySearch
         /// </returns>
         public static int BinarySearch<T>(this T[] targetArray, T value, Func<T, T, int> comparison)
         {
+            if (targetArray == null)
+            {
+                throw new ArgumentNullException("targetArray");
+            }
             if (comparison == null)
             {
                 if (value is IComparable)
                 {
-                    comparison = (T first, T second) => (first as IComparable).CompareTo(second);
+                    comparison = Comparer<T>.Default.Compare;
                 }
                 else
                 {
-                    throw new ArgumentNullException();
+                    throw new ArgumentNullException("comparison");
                 }
             }
 
@@ -83,14 +87,18 @@ namespace BinarySearch
         /// </returns>
         public static int BinarySearch<T>(this T[] targetArray, T value, IComparer<T> comparer)
         {
+            if (targetArray == null)
+            {
+                throw new ArgumentNullException("targetArray");
+            }
             if (comparer == null)
             {
-                if (value is IComparable<T>)
+                if (value is IComparable)
                 {
-                    Func<T, T, int> comparison = (T first, T second) => (first as IComparable<T>).CompareTo(second);
+                    Func<T, T, int> comparison = Comparer<T>.Default.Compare;
                     return targetArray.BinarySearch(value, comparison);
                 }
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("comparer");
             }
             return targetArray.BinarySearch(value, comparer.Compare);
         }
@@ -110,9 +118,13 @@ namespace BinarySearch
         /// </returns>
         public static int BinarySearch<T>(this T[] targetArray, T value)
         {
+            if (targetArray == null)
+            {
+                throw new ArgumentNullException("targetArray");
+            }
             if (value is IComparable)
             {
-                Func<T, T, int> comparison = (T first, T second) => (first as IComparable).CompareTo(second);
+                Func<T, T, int> comparison = Comparer<T>.Default.Compare;
                 return targetArray.BinarySearch(value, comparison);
             }
 

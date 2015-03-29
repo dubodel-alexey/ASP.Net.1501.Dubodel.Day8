@@ -58,12 +58,17 @@ namespace BinarySearchTests
         public void BinarySearchCustomComparerNullTypeNotComparableTestMethod()
         {
             var array = new[] { new StringBuilder("1"), new StringBuilder("2"), new StringBuilder("3")};
-            int expected = 1;
             StringBuilderCustomComparer comparer = null;
             int actual = array.BinarySearch(new StringBuilder("1"), comparer);
-            Assert.AreEqual(expected, actual);
         }
 
+        [ExpectedException(typeof(ArgumentException))]
+        [TestMethod]
+        public void BinarySearchNotComparableTypeTestMethod()
+        {
+            var array = new[] { new ClassA(), new ClassA()};
+            int actual = array.BinarySearch( new ClassA());
+        }
 
     }
 }

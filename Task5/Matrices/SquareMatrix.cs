@@ -20,7 +20,7 @@ namespace Matrices
             ValueChanged(this, e);
         }
 
-        public virtual T this[int i, int j]//ADd check, event
+        public virtual T this[int i, int j]
         {
             get
             {
