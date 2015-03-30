@@ -1,31 +1,24 @@
 ﻿using System;
+using Matrices.Abstraction;
 
 namespace Matrices
 {
-    public class SquareMatrix<T>
+    public class SquareMatrix<T> : AbstractSquareMatrix<T>
     {
-        protected T[,] matrix;
-        public int Order { get; protected set; }
-
-        public event EventHandler<MatrixEventArgs> ValueChanged = delegate { };
+        protected T[] matrix;
 
         public SquareMatrix(int order)
         {
-            matrix = new T[order, order];
+            matrix = new T[order * order];
             Order = order;
         }
 
-        private void OnValueChange(MatrixEventArgs e)
-        {
-            ValueChanged(this, e);
-        }
-
-        public virtual T this[int i, int j]
+        public override T this[int i, int j]
         {
             get
             {
                 if (i < Order && i >= 0 && j < Order && j >= 0)
-                    return matrix[i, j];
+                    return matrix[j + i * Order];
                 else
                     throw new ArgumentOutOfRangeException();
             }
@@ -33,7 +26,7 @@ namespace Matrices
             {
                 if (i < Order && i >= 0 && j < Order && j >= 0)
                 {
-                    matrix[i, j] = value;
+                    matrix[j + i * Order] = value;
                     OnValueChange(new MatrixEventArgs(i, j));
                 }
                 else

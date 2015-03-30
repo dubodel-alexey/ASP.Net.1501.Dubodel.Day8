@@ -1,30 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Matrices.Abstraction;
 
 namespace Matrices
 {
-    public class DiagonalMatrix<T> : SquareMatrix<T>
+    public class DiagonalMatrix<T> : AbstractSquareMatrix<T>
     {
-        public DiagonalMatrix(int order)
-            : base(order)
-        {
+        protected T[] matrix;
 
+        public DiagonalMatrix(int order)
+        {
+            Order = order;
+            matrix = new T[order];
         }
 
         public override T this[int i, int j]
         {
-            get { return base[i, j]; }
+            get
+            {
+                if (i < Order && i >= 0 && j < Order && j >= 0)
+                {
+                    return (i == j) ? matrix[i] : default(T);
+                }
+                throw new ArgumentOutOfRangeException();
+            }
             set
             {
-                if (i == j)
-                    base[i, j] = value;
-                else
+                if (i < Order && i >= 0 && j < Order && j >= 0)
                 {
-                    throw new ArgumentException("Can't change not diagonal element. i should be equals j");
+                    if (i == j)
+                    {
+                        matrix[i] = value;
+                        OnValueChange(new MatrixEventArgs(i, j));
+                    }
+                    else
+                        throw new ArgumentException("Can't change not diagonal element. i should be equals j");
                 }
+                else
+                    throw new ArgumentOutOfRangeException("i");
             }
         }
     }

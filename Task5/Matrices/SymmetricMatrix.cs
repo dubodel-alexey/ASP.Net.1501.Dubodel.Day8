@@ -1,27 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Matrices.Abstraction;
 
 namespace Matrices
 {
-    public class SymmetricMatrix<T> : SquareMatrix<T>
+    public class SymmetricMatrix<T> : AbstractSquareMatrix<T>
     {
-        public SymmetricMatrix(int order)
-            : base(order)
-        {
+        protected T[] matrix;
 
+        public SymmetricMatrix(int order)
+        {
+            Order = order;
+            matrix = new T[(order + 1) * order / 2];  //sum(1,2,...,n) = n*(n+1) /2
         }
 
         public override T this[int i, int j]
         {
-            get { return base[i, j]; }
+            get
+            {
+                if (i < Order && i >= 0 && j < Order && j >= 0)
+                {
+                    int currI = (i > j) ? j : i;
+                    int currJ = (i > j) ? i : j;
+
+                    int rowIndex = (2 * Order - currI + 1) * currI / 2;
+                    int colIndex = currJ - currI;
+                    return matrix[rowIndex + colIndex];
+                }
+                else
+                    throw new ArgumentOutOfRangeException();
+            }
             set
             {
-                base[i, j] = value;
-                if (j != i)
-                    base[j, i] = value;
+                if (i < Order && i >= 0 && j < Order && j >= 0)
+                {
+                    int currI = (i > j) ? j : i;
+                    int currJ = (i > j) ? i : j;
+
+                    int rowIndex = (2 * Order - currI + 1) * currI / 2;
+                    int colIndex = currJ - currI;
+
+                    matrix[rowIndex + colIndex] = value;
+                    OnValueChange(new MatrixEventArgs(i, j));
+                    OnValueChange(new MatrixEventArgs(j, i));
+                }
+                else
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

@@ -35,7 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Matrices">
+    <Reference Include="Matrices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Matrices\bin\Debug\Matrices.dll</HintPath>
     </Reference>
     <Reference Include="System" />

@@ -34,7 +34,7 @@ namespace MatriciesTests
                 diagonalMatrix[i, i] = 1;
             }
 
-            var actualMatrix = symMatrix.Add(diagonalMatrix, (i, i1) => i + i1);
+            var actualMatrix = symMatrix.Add(diagonalMatrix);
 
             bool result = true;
             for (int i = 0; i < symMatrix.Order; i++)
@@ -59,17 +59,7 @@ namespace MatriciesTests
             var symMatrix = new SymmetricMatrix<int>(3);
             var diagonalMatrix = new DiagonalMatrix<int>(4);
 
-            symMatrix.Add(diagonalMatrix, (i, i1) => i + i1);
-        }
-
-        [ExpectedException(typeof(ArgumentNullException))]
-        [TestMethod]
-        public void AdditionMatriciesWitoutAdditionRulerTestMethod()
-        {
-            var symMatrix = new SymmetricMatrix<int>(3);
-            var diagonalMatrix = new DiagonalMatrix<int>(3);
-
-            symMatrix.Add(diagonalMatrix, null);
+            symMatrix.Add(diagonalMatrix);
         }
 
         [ExpectedException(typeof(ArgumentException))]
