@@ -7,9 +7,11 @@ namespace FibonacciEnumerator
     {
         public static IEnumerable<long> GetNumbers(long count)
         {
-            long first = 0, second = 1;
+            if (count <= 0) yield break;
+             
             yield return 1;
 
+            long first = 0, second = 1;
             for (int i = 0; i < count - 1; i++)
             {
                 long nextNumber;
